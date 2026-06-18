@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+	transpilePackages: ["@uploadthing/react", "uploadthing"],
+};
 
 export default nextConfig;

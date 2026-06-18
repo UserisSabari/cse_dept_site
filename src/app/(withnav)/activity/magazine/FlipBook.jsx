@@ -2,9 +2,9 @@
 
 import React, { useEffect, useRef } from "react";
 
-// Import CSS files
-import "/public/dflip/css/dflip.min.css";
-import "/public/dflip/css/themify-icons.min.css";
+// Import CSS files using relative paths from this component
+import "../../../../../public/dflip/css/dflip.min.css";
+import "../../../../../public/dflip/css/themify-icons.min.css";
 
 const FlipBook = ({ pdf }) => {
   const flipbookRef = useRef(null);
