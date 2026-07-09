@@ -2,6 +2,19 @@
 
 import React, { useEffect, useRef } from "react";
 
+/*
+ * NOTE: The npm package `flip-book@1.9.9` was removed from package.json because
+ * it has unfixable security vulnerabilities (three.js DoS + deprecated Babel 6 chain,
+ * issue #152). It was also unused — this component uses the dFlip library instead,
+ * loaded via public/dflip/ static assets (see /public/dflip/).
+ *
+ * TODO (future): If a pure npm page-flip renderer is ever needed, consider:
+ *   - `react-pageflip` (already in dependencies) — lightweight React wrapper for StPageFlip
+ *   - `@barthuijgen/react-pdf-flipbook` — PDF-based flipbook
+ * The dFlip integration below works by injecting scripts dynamically from /public/dflip/.
+ */
+
+
 // Import CSS files using relative paths from this component
 import "../../../../../public/dflip/css/dflip.min.css";
 import "../../../../../public/dflip/css/themify-icons.min.css";

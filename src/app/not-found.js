@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { FaAngleRight, FaArrowRightLong } from "react-icons/fa6";
 import "./globals.css";
 
@@ -32,13 +33,13 @@ export default function Page() {
           />
           <div className="divider mt-28 md:mt-4 invisible md:visible w-[100px] h-[2px] bg-black my-10 md:my-5"></div>
           <div className="flex justify-center md:justify-start group transition-all duration-300 ease-in-out transform  translate-x-0 hover:-translate-x-3 ">
-            <a
+            <Link
               href="/"
               className="text-base md:text-xl text-gray-400 font-light mr-5"
             >
               GO TO
-            </a>
-            <a
+            </Link>
+            <Link
               href="/"
               className="text-base md:text-xl font-medium text-center inline-flex *:items-center"
             >
@@ -47,7 +48,7 @@ export default function Page() {
                 <FaAngleRight className="group-hover:hidden" />
                 <FaArrowRightLong className="hidden group-hover:inline-flex" />
               </span>
-            </a>
+            </Link>
           </div>
         </div>
       ) : (
@@ -60,13 +61,13 @@ export default function Page() {
               This is not the page you&apos;re looking for
             </p>
             <div className="flex justify-center md:justify-center md:mt-6 mt-4 group transition-all duration-300 ease-in-out transform  translate-x-0 hover:-translate-x-3 ">
-              <a
+              <Link
                 href="/"
                 className="text-lg md:text-xl text-gray-400 font-light mr-5"
               >
                 GO TO
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/"
                 className="text-lg md:text-xl font-medium text-center inline-flex items-center"
               >
@@ -75,7 +76,7 @@ export default function Page() {
                   <FaAngleRight className="group-hover:hidden" />
                   <FaArrowRightLong className="hidden group-hover:inline-flex" />
                 </span>
-              </a>
+              </Link>
             </div>
           </div>
           <div className="divider md:w-[2px] md:h-[100px] h-[2px] w-[100px] bg-white md:mx-10 xl:mx-20 my-10"></div>

@@ -153,6 +153,7 @@ const ExpandableCards = ({ title, item }) => {
                     onMouseLeave={() => setIsHover(false)}
                   >
                     <img
+                      alt=""
                       className=" w-full h-[300px] bg-cover bg-no-repeat bg-center group-hover/items:grayscale"
                       style={{
                         backgroundImage: `url(${

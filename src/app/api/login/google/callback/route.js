@@ -8,8 +8,21 @@ import { google } from "@/lib/auth";
 import { cookies } from "next/headers";
 import User from "@/lib/models/User";
 import dbConnect from "@/lib/db";
-import { generateRandomString, alphabet } from "oslo/crypto";
 import { NextResponse } from "next/server";
+
+// NOTE: Previously used `oslo/crypto` (deprecated). Replaced with native Web Crypto API.
+// Generates a cryptographically random string of `length` chars from the given `chars` set.
+function generateRandomString(length, chars) {
+  const array = new Uint8Array(length);
+  crypto.getRandomValues(array);
+  return Array.from(array)
+    .map((x) => chars[x % chars.length])
+    .join("");
+}
+// Character set: a-z and 0-9 (equivalent to oslo's alphabet("a-z", "0-9"))
+const USER_ID_CHARS = "abcdefghijklmnopqrstuvwxyz0123456789";
+
+
 
 const emails = ["mohdhashique10@gmail.com", "viswajithviswa715@gmail.com","jeraldjoyson21@gmail.com","sabarisanthosh45@gmail.com"];
 
@@ -85,7 +98,7 @@ export async function GET(request) {
     });
   }
 
-  const userId = generateRandomString(10, alphabet("a-z", "0-9"));
+  const userId = generateRandomString(10, USER_ID_CHARS);
 
   const user = await User.create({
     _id: userId,

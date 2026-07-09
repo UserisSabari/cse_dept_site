@@ -116,6 +116,7 @@ export default function Developers() {
   let isPaused = false; // New flag to control animation state
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     requestAnimationFrame(animation);
   }, []);
 
