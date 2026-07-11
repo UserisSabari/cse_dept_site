@@ -6,17 +6,24 @@ const syllabusSchema = new mongoose.Schema({
     ref: "Course",
     required: true,
   },
+  // Programme the syllabus belongs to — used for public browser filtering
+  programme: {
+    type: String,
+    enum: ["BTech", "MTech", "PhD"],
+    required: true,
+  },
   yearOfScheme: {
     type: String,
     required: true,
   },
+  // Semester identifier, e.g. "S1" … "S8"
   sem: {
     type: String,
+    enum: ["S1", "S2", "S3", "S4", "S5", "S6", "S7", "S8"],
     required: true,
   },
   syllabus: {
     type: String,
-    required: true,
   },
   pdfUrl: {
     type: String,
