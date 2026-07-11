@@ -1,0 +1,31 @@
+﻿# https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Asia/Kolkata"
+    open-pull-requests-limit: 5
+    # Group patch-level bumps into a single PR to reduce noise
+    groups:
+      patch-updates:
+        patterns:
+          - "*"
+        update-types:
+          - "patch"
+    # Always allow security updates regardless of the limit above
+    allow:
+      - dependency-type: "all"
+    # Watch these specifically — they are the packages that carry known
+    # transitive vulnerabilities (see .github/SECURITY-WATCH.md)
+    ignore:
+      # Do NOT auto-merge next major upgrades; handle manually
+      - dependency-name: "next"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "uploadthing"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "@uploadthing/react"
+        update-types: ["version-update:semver-major"]
