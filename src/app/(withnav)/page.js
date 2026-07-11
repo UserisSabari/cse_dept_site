@@ -21,7 +21,9 @@ export default function Home() {
       <DeptLogo />
       <HorizontalScrollCarousel />
       {/* <HodMessage /> */}
-      {/* <Acheivers /> */}
+      {/* Hidden per issue #148 — re-enable when achievers data is ready
+      <Acheivers />
+      */}
       <References />
     </main>
   );

@@ -12,6 +12,14 @@ function Home() {
   const notificationRef = useRef(null);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [hasAutoOpened, setHasAutoOpened] = useState(false);
+  const [isHighlighting, setIsHighlighting] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsHighlighting(false);
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     AOS.init({ duration: 1000 });
@@ -104,9 +112,11 @@ function Home() {
             onClick={handleClick}
             onMouseEnter={() => setIsHover(true)}
             onMouseLeave={() => setIsHover(false)}
-            className="absolute bottom-48 right-0 mt-48 box-content px-3 py-2 w-12 rounded-sm  cursor-pointer"
+            className={`absolute bottom-48 right-0 mt-48 box-content px-3 py-2 w-12 rounded-sm cursor-pointer transition-all duration-500 ${
+              isHighlighting ? "animate-pulse scale-110" : ""
+            }`}
             style={{
-              background: "rgba(255, 255, 255, 0.10)",
+              background: isHighlighting ? "rgba(255, 255, 255, 0.30)" : "rgba(255, 255, 255, 0.10)",
               backdropFilter: "blur(30px)",
             }}
             data-aos="fade-left"

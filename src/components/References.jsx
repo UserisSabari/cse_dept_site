@@ -98,6 +98,8 @@ export default function References() {
                 <a
                   key={index}
                   href={sr.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="items relative flex rounded justify-center items-center lg:hover:border-[1px] lg:hover:border-newblue"
                 >
                   <img

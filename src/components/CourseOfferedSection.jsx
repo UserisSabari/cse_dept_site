@@ -57,12 +57,6 @@ const CourseOfferedSection = () => {
                         alt=""
                       />
                     </div>
-                    {/* <button className="font-normal font-montserrat text-[16px] lg:text-[20px] leading-[24.38px] bg-[#FFFFFF26] text-center p-[10px] mt-6">
-                      SYLLABUS (2015 SCHEME)
-                    </button>
-                    <button className=" font-normal font-montserrat text-[16px] lg:text-[20px] leading-[24.38px] bg-[#FFFFFF26] text-center p-[10px] mt-6">
-                      SYLLABUS (2019 SCHEME)
-                    </button> */}
                     <h2 className="font-medium font-montserrat text-[18px] lg:text-[20px] leading-[24.38px] mt-6">
                       {item.title}
                     </h2>
