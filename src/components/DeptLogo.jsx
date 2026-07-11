@@ -46,19 +46,19 @@ const DeptLogo = () => {
   });
   const visionTextOpacity = useTransform(
     scrollYProgress,
-    [0.75, 0.85],
+    [0.75, 0.95],
     [0, 1],
     {
       ease: cubicBezier(0.455, 0.03, 0.515, 0.955),
     }
   );
-  const visionTextY = useTransform(scrollYProgress, [0.75, 0.85], [200, 0], {
+  const visionTextY = useTransform(scrollYProgress, [0.75, 0.95], [200, 0], {
     ease: cubicBezier(0.455, 0.03, 0.515, 0.955),
   });
-  const missionTextOpacity = useTransform(scrollYProgress, [0.85, 1], [0, 1], {
+  const missionTextOpacity = useTransform(scrollYProgress, [0.75, 0.95], [0, 1], {
     ease: cubicBezier(0.455, 0.03, 0.515, 0.955),
   });
-  const missionTextY = useTransform(scrollYProgress, [0.85, 1], [200, 0], {
+  const missionTextY = useTransform(scrollYProgress, [0.75, 0.95], [200, 0], {
     ease: cubicBezier(0.455, 0.03, 0.515, 0.955),
   });
 
@@ -67,41 +67,43 @@ const DeptLogo = () => {
   const item2 = useRef(null);
   const item3 = useRef(null);
   const item4 = useRef(null);
-  let xPercent = 0;
-  let direction = -1;
-  let isPaused = false; // New flag to control animation state
   
+  const requestRef = useRef();
+  const xPercent = useRef(0);
+  const isPaused = useRef(false);
+
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    requestAnimationFrame(animation);
+    const direction = -1;
+    const animation = () => {
+      if (!isPaused.current) {
+        if (xPercent.current <= -100) {
+          xPercent.current = 0;
+        }
+        if (xPercent.current > 0) {
+          xPercent.current = -100;
+        }
+    
+        gsap.set(item1.current, { xPercent: xPercent.current });
+        gsap.set(item2.current, { xPercent: xPercent.current });
+        gsap.set(item3.current, { xPercent: xPercent.current });
+        gsap.set(item4.current, { xPercent: xPercent.current });
+    
+        xPercent.current += 0.15 * direction;
+      }
+    
+      requestRef.current = requestAnimationFrame(animation);
+    };
+
+    requestRef.current = requestAnimationFrame(animation);
+    return () => cancelAnimationFrame(requestRef.current);
   }, []);
   
-  const animation = () => {
-    if (!isPaused) {  // Only update animation if not paused
-      if (xPercent <= -100) {
-        xPercent = 0;
-      }
-      if (xPercent > 0) {
-        xPercent = -100;
-      }
-  
-      gsap.set(item1.current, { xPercent: xPercent });
-      gsap.set(item2.current, { xPercent: xPercent });
-      gsap.set(item3.current, { xPercent: xPercent });
-      gsap.set(item4.current, { xPercent: xPercent });
-  
-      xPercent += 0.15 * direction;
-    }
-  
-    requestAnimationFrame(animation);
-  };
-  
   const handleMouseEnter = () => {
-    isPaused = true;  // Pause animation on hover
+    isPaused.current = true;
   };
   
   const handleMouseLeave = () => {
-    isPaused = false;  // Resume animation when hover ends
+    isPaused.current = false;
   };
 
 
@@ -111,7 +113,7 @@ const DeptLogo = () => {
     <ColoredSection color="BLACK">
       <div
         ref={containerRef}
-        className="flex flex-col px-12 md:px-20 py-8 justify-center items-center min-h-screen"
+        className="flex flex-col px-12 md:px-20 pt-32 pb-8 justify-center items-center min-h-screen"
         id="mission"
       >
         <div className="flex justify-center align-items-center relative px-5 md:px-0">
@@ -121,10 +123,10 @@ const DeptLogo = () => {
               scale: scaleLogo,
             }}
             src="/cse.png"
-            width={480}
-            height={280}
+            width={380}
+            height={220}
             alt="cse Image"
-            className="cse-image "
+            className="cse-image w-[280px] md:w-[380px] h-auto"
           />
           <motion.div
             style={{
@@ -136,10 +138,10 @@ const DeptLogo = () => {
           >
             <Image
               src="/cap.png"
-              width={200}
-              height={200}
+              width={160}
+              height={160}
               alt="Cap Image"
-              className="cap-image w-[25vw] md:w-[200px]"
+              className="cap-image w-[20vw] md:w-[160px]"
             />
           </motion.div>
         </div>
@@ -193,7 +195,7 @@ const DeptLogo = () => {
          onMouseLeave={handleMouseLeave}>
 
          <div className="flex items-center whitespace-nowrap gap-5 h-[100px]  max-w-screen " ref={item1}>
-          <p className=" lg:text-4xl text-2xl text-[#9E9E9E] font-extrabold font-bebasneue pl-5" >
+          <p className=" lg:text-3xl text-xl text-[#9E9E9E] font-extrabold font-bebasneue pl-5" >
             NATIONAL BOARD OF ACCREDITATION ACCREDITED
           </p>
           <div className="border-x-4 border-[#9E9E9E] border-solid px-2">
@@ -208,7 +210,7 @@ const DeptLogo = () => {
 
          
         <div className="flex  items-center whitespace-nowrap gap-5 h-[100px]" ref={item2}>
-          <p className=" lg:text-4xl text-2xl text-[#9E9E9E] font-extrabold font-bebasneue pl-5" >
+          <p className=" lg:text-3xl text-xl text-[#9E9E9E] font-extrabold font-bebasneue pl-5" >
             NATIONAL BOARD OF ACCREDITATION ACCREDITED
           </p>
           <div className="border-x-4 border-[#9E9E9E] border-solid px-2">
@@ -220,7 +222,7 @@ const DeptLogo = () => {
           </div>
         </div>
         <div className="flex items-center whitespace-nowrap gap-5 h-[100px] " ref={item3}>
-          <p className="lg:text-4xl text-2xl text-[#9E9E9E] font-extrabold font-bebasneue pl-5" >
+          <p className="lg:text-3xl text-xl text-[#9E9E9E] font-extrabold font-bebasneue pl-5" >
             NATIONAL BOARD OF ACCREDITATION ACCREDITED
           </p>
           <div className="border-x-4 border-[#9E9E9E] border-solid px-2">
@@ -236,7 +238,7 @@ const DeptLogo = () => {
               className="flex items-center whitespace-nowrap gap-5 h-[100px] "
               ref={item4}
             >
-              <p className="lg:text-4xl text-2xl text-[#9E9E9E] font-extrabold font-bebasneue pl-5">
+              <p className="lg:text-3xl text-xl text-[#9E9E9E] font-extrabold font-bebasneue pl-5">
                 NATIONAL BOARD OF ACCREDITATION ACCREDITED
               </p>
               <div className="border-x-4 border-[#9E9E9E] border-solid px-2">

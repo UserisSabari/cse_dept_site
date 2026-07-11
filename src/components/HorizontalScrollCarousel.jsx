@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
 import ColoredSection from "./ColoredSection";
-import HorizontalScroll from "./horizontal-scroll";
 
 const images = [
   "/ImageScroll/s82025.jpeg",
@@ -52,12 +51,12 @@ const HorizontalScrollCarousel = () => {
               </div>
             </div>
           ) : (
-            <HorizontalScroll>
-              <div className="relative h-full pl-[150px] bg-black flex flex-row flex-nowrap justify-start items-center">
+            <div className="w-full h-[100vh] overflow-x-auto overflow-y-hidden snap-x snap-mandatory hide-scrollbar">
+              <div className="relative h-full pl-[150px] bg-black flex flex-row flex-nowrap justify-start items-center w-max pr-[150px]">
                 {images.map((src, index) => (
                   <div
                     key={index}
-                    className="relative h-[700px] w-[600px] mr-[75px] flex-shrink-0"
+                    className="relative h-[700px] w-[600px] mr-[75px] flex-shrink-0 snap-center"
                   >
                     <div
                       className={`absolute h-[650px] w-auto ${
@@ -66,14 +65,14 @@ const HorizontalScrollCarousel = () => {
                     >
                       <img
                         src={src}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover rounded-md"
                         alt={`random image ${index + 1}`}
                       />
                     </div>
                   </div>
                 ))}
               </div>
-            </HorizontalScroll>
+            </div>
           )}
         </section>
       </main>

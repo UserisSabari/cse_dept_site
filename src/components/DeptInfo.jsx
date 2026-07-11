@@ -78,7 +78,7 @@ const DeptInfo = () => {
                 The Department of Computer <br /> Science and Engineering
               </h1>
               <p
-                className="text-gray-400  sm:text-2xl md:text-3xl nav-md:pt-28 pt-4 text-xl nav-md:text-3xl"
+                className="text-gray-400 text-base sm:text-lg md:text-xl nav-md:pt-28 pt-4"
                 // style={{ paddingTop: showDivs ? "" : `${paddingVal * 2}px` }}
               >
                 {DeptConstants.desc}

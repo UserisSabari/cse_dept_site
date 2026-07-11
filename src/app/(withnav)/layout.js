@@ -25,6 +25,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
+        suppressHydrationWarning
         className={`${inter.className} ${montserrat.variable} ${bebasNeue.variable}`}
       >
         <LenisScroll>

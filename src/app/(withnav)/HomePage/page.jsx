@@ -1,29 +1,33 @@
 "use client";
 
+// TODO: For future implementation - rename this file to HeroSection.jsx and move it to src/components/ to avoid unintended Next.js App Router route creation (/HomePage).
+
 import React, { useEffect, useState, useRef } from "react";
 import { MdOutlineNotifications } from "react-icons/md";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import { motion } from "framer-motion";
 import ColoredSection from "../../../components/ColoredSection";
 
+const HIGHLIGHT_TIMEOUT_MS = 3000;
+const AUTO_OPEN_TIMEOUT_MS = 3000;
+
 function Home() {
-  const [isHover, setIsHover] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const notificationRef = useRef(null);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [hasAutoOpened, setHasAutoOpened] = useState(false);
   const [isHighlighting, setIsHighlighting] = useState(true);
+  
+  // TODO: isHover state kept for future implementation
+  const [isHover, setIsHover] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsHighlighting(false);
-    }, 3000);
+    }, HIGHLIGHT_TIMEOUT_MS);
     return () => clearTimeout(timer);
   }, []);
 
-  useEffect(() => {
-    AOS.init({ duration: 1000 });
-  }, []);
+
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -40,29 +44,18 @@ function Home() {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [notificationRef]);
+  }, []);
 
   useEffect(() => {
     if (!hasAutoOpened) {
       setIsVisible(true);
       setHasAutoOpened(true);
-      setTimeout(() => {
+      const timer = setTimeout(() => {
         setIsVisible(false);
-      }, 3000);
+      }, AUTO_OPEN_TIMEOUT_MS);
+      return () => clearTimeout(timer);
     }
   }, [hasAutoOpened]);
-  useEffect(() => {
-    const video = document.getElementById('backgroundVideo');
-    video.addEventListener('loadeddata', () => {
-      setIsVideoLoaded(true);
-    });
-
-    return () => {
-      video.removeEventListener('loadeddata', () => {
-        setIsVideoLoaded(true);
-      });
-    };
-  }, []);
 
   const handleClick = () => {
     setIsVisible((prev) => !prev);
@@ -71,9 +64,12 @@ function Home() {
   return (
     <ColoredSection color="WHITE">
       <div className="relative h-screen overflow-hidden">
-        <div
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
           className="flex gap-2 content absolute bottom-0 left-0 w-full p-8 lg:p-12 text-white"
-          data-aos="fade-right"
         >
           <div className="lg:w-3 lg:h-3 w-2 h-2 mt-3 bg-white"></div>
           <div>
@@ -84,34 +80,46 @@ function Home() {
               GOVERNMENT ENGINEERING COLLEGE, SREEKRISHNAPURAM, PALAKKAD
             </p>
           </div>
-        </div>
+        </motion.div>
 
         <div className="overflow-hidden relative w-full h-screen">
           <img
             src="/placeholder-image.jpeg"  // Replace with your placeholder image path
-            alt="Background"
+            alt=""
+            aria-hidden="true"
             className={`w-full h-full object-cover absolute top-0 z-[-2] transition-opacity duration-500 ${
               isVideoLoaded ? 'opacity-0' : 'opacity-100'
             }`}
           />
           <video
-            id="backgroundVideo"
             src="frontVid.mp4"  // Replace with your video path
             autoPlay
             muted
             loop
             playsInline
             preload="auto"
+            onLoadedData={() => setIsVideoLoaded(true)}
             className={`w-full h-full object-cover absolute top-0 z-[-1] transition-opacity duration-500 ${
               isVideoLoaded ? 'opacity-100' : 'opacity-0'
             }`}
           />
 
-          <div
+          <motion.button
             ref={notificationRef}
             onClick={handleClick}
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
             onMouseEnter={() => setIsHover(true)}
             onMouseLeave={() => setIsHover(false)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                handleClick();
+              }
+            }}
+            aria-expanded={isVisible}
+            aria-label="Toggle notifications"
             className={`absolute bottom-48 right-0 mt-48 box-content px-3 py-2 w-12 rounded-sm cursor-pointer transition-all duration-500 ${
               isHighlighting ? "animate-pulse scale-110" : ""
             }`}
@@ -119,10 +127,9 @@ function Home() {
               background: isHighlighting ? "rgba(255, 255, 255, 0.30)" : "rgba(255, 255, 255, 0.10)",
               backdropFilter: "blur(30px)",
             }}
-            data-aos="fade-left"
           >
-            <MdOutlineNotifications style={{ color: "#FFFFFF" }} size={26} />
-          </div>
+            <MdOutlineNotifications style={{ color: "#FFFFFF" }} size={26} aria-hidden="true" />
+          </motion.button>
 
           {isVisible && (
             <div
@@ -137,6 +144,7 @@ function Home() {
                 <MdOutlineNotifications
                   style={{ color: "#FFFFFF" }}
                   size={26}
+                  aria-hidden="true"
                 />
               </div>
               <div>

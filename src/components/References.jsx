@@ -86,7 +86,7 @@ export default function References() {
           <div className="lg:flex-none flex flex-col justify-center items-center">
             <h1
               ref={text1}
-              className="self-start lg:block lg:px-0 px-10 font-bold mt-[1rem] mb-[1rem] font-bebasneue text-[56px]"
+              className="self-start lg:block lg:px-0 px-10 font-bold mt-[1rem] mb-[1rem] font-bebasneue text-4xl md:text-5xl"
             >
               .REFERENCES
             </h1>
@@ -118,7 +118,7 @@ export default function References() {
           </div>
           <div className="lg:w-[60%] px-5 lg:px-0">
             <div ref={text2} className="flex lg:justify-end">
-              <p className="text-[56px] font-bebasneue mt-[1rem] mb-[1rem] font-bold">
+              <p className="text-4xl md:text-5xl font-bebasneue mt-[1rem] mb-[1rem] font-bold">
                 .NEW POSTS
               </p>
             </div>
@@ -137,7 +137,7 @@ export default function References() {
                       alt=""
                     />
                     <div className="absolute inset-0">
-                      <p className="absolute inset-x-5 top-6 text-white font-montserrat text-4xl font-bold">
+                      <p className="absolute inset-x-5 top-6 text-white font-montserrat text-2xl md:text-3xl font-bold">
                         Project showcase
                       </p>
                       <div className="absolute inset-x-5 bottom-6">
@@ -184,7 +184,7 @@ export default function References() {
                       alt=""
                     />
                     <div className="absolute inset-0">
-                      <div className="absolute text-white font-montserrat text-4xl font-bold inset-x-5 top-6">
+                      <div className="absolute text-white font-montserrat text-2xl md:text-3xl font-bold inset-x-5 top-6">
                         World Map
                       </div>
                       <div className="absolute inset-x-5 bottom-6 text-white">
@@ -217,7 +217,7 @@ export default function References() {
                       alt=""
                     />
                     <div className="absolute inset-0">
-                      <div className="absolute text-white font-bold font-montserrat text-4xl inset-x-5 top-6">
+                      <div className="absolute text-white font-bold font-montserrat text-2xl md:text-3xl inset-x-5 top-6">
                         Attitude Probe
                       </div>
                       <div className="absolute inset-x-5 bottom-6 text-white">
