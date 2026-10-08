@@ -96,7 +96,7 @@ const ExpandableCards = ({ title, placements }) => {
     return (
         <div className="container w-screen flex justify-center overflow-hidden mx-auto px-4 sm:px-6 pb-[2px]">
             <div
-                className={`group w-full flex flex-col justify-center transition-all duration-[1s] ease-in-out bg-[#E9E9E8] pt-5 p-3 ${
+                className={`group w-full flex flex-col justify-center transition-all duration-1000 ease-in-out bg-[#E9E9E8] pt-5 p-3 ${
                     isExpanded ? 'mb-5 mt-5' : ''
                 }`}
             >
@@ -120,14 +120,14 @@ const ExpandableCards = ({ title, placements }) => {
                         onClick={toggleExpand}
                         className={`transition-transform opacity-0 group-hover:opacity-100 cursor-pointer ${
                             isExpanded ? 'rotate-180 opacity-100' : ''
-                        } duration-[1s] ease-in-out z-10`}
+                        } duration-1000 ease-in-out z-10`}
                     >
                         <MdKeyboardArrowDown className="w-10 h-8 text-[#9E9E9E]" />
                     </div>
                 </div>
 
                 <div
-                    className={`transition-all duration-[1s] px-5 overflow-hidden ${
+                    className={`transition-all duration-1000 px-5 overflow-hidden ${
                         isExpanded ? 'opacity-100 h-auto' : 'opacity-0 h-0'
                     }`}
                 >

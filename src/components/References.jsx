@@ -121,7 +121,7 @@ export default function References() {
                     alt=""
                   />
                   <img
-                    className="absolute inset-0 h-full w-full opacity-100 hover:duration-[0.5s] transition-all lg:hover:opacity-0"
+                    className="absolute inset-0 h-full w-full opacity-100 hover:duration-500 transition-all lg:hover:opacity-0"
                     src={sr.org}
                     alt=""
                   />

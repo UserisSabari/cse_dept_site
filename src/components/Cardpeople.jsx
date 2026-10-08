@@ -26,7 +26,7 @@ const ExpandableCards = ({ title, item }) => {
         <div className="w-screen flex justify-center overflow-hidden">
             <div
                 className={cn(
-                    'group w-[90%] flex flex-col justify-center transition-all duration-[1s] ease-in-out bg-[#E9E9E8] p-3',
+                    'group w-[90%] flex flex-col justify-center transition-all duration-1000 ease-in-out bg-[#E9E9E8] p-3',
                     { 'mb-5 mt-5': isExpanded }
                 )}
             >
@@ -66,7 +66,7 @@ const ExpandableCards = ({ title, item }) => {
 
                 <div
                     className={cn(
-                        'transition-all duration-[1s] h-auto overflow-hidden',
+                        'transition-all duration-1000 h-auto overflow-hidden',
                         {
                             'opacity-100': isExpanded,
                             'opacity-0 max-h-0': !isExpanded,
@@ -76,7 +76,7 @@ const ExpandableCards = ({ title, item }) => {
                     <div className="flex pb-3">
                         <div
                             className={cn(
-                                'no-scrollbar flex flex-wrap flex-initial max-h-full overflow-auto justify-items-start w-full transition-all duration-[1s] ease-in-out gap-3 mb-3 px-5'
+                                'no-scrollbar flex flex-wrap flex-initial max-h-full overflow-auto justify-items-start w-full transition-all duration-1000 ease-in-out gap-3 mb-3 px-5'
                             )}
                         >
                             {item.map((data, key) => (
@@ -185,7 +185,7 @@ const ExpandableCards = ({ title, item }) => {
     );
 };
 
-function cardpeople() {
+function Cardpeople() {
     const [faculties, setFaculties] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -235,4 +235,4 @@ function cardpeople() {
     );
 }
 
-export default cardpeople;
+export default Cardpeople;

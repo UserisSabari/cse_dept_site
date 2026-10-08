@@ -8,7 +8,7 @@ import { google } from '@/lib/auth';
 import { cookies } from 'next/headers';
 import User from '@/lib/models/User';
 import dbConnect from '@/lib/db';
-import { generateRandomString, alphabet } from 'oslo/crypto';
+import crypto from 'crypto';
 import { NextResponse } from 'next/server';
 
 const emails =
@@ -89,7 +89,7 @@ export async function GET(request) {
         });
     }
 
-    const userId = generateRandomString(10, alphabet('a-z', '0-9'));
+    const userId = crypto.randomBytes(5).toString('hex');
 
     const user = await User.create({
         _id: userId,
