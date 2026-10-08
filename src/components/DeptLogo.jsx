@@ -4,25 +4,16 @@ import { DeptConstants } from "@/constants/DeptConstants";
 import Image from "next/image";
 import ColoredSection from "./ColoredSection";
 import {
-  useInView,
   motion,
   useScroll,
   useTransform,
-  useMotionValueEvent,
   cubicBezier,
 } from "framer-motion";
 import { useRef,useEffect } from "react";
 import gsap from "gsap";
 
 
-const imageAnimationVariants = {
-  invisible: {
-    opacity: 0,
-  },
-  visible: {
-    opacity: 1,
-  },
-};
+
 
 const DeptLogo = () => {
   const containerRef = useRef(null);
@@ -46,19 +37,19 @@ const DeptLogo = () => {
   });
   const visionTextOpacity = useTransform(
     scrollYProgress,
-    [0.75, 0.95],
+    [0.75, 0.85],
     [0, 1],
     {
       ease: cubicBezier(0.455, 0.03, 0.515, 0.955),
     }
   );
-  const visionTextY = useTransform(scrollYProgress, [0.75, 0.95], [200, 0], {
+  const visionTextY = useTransform(scrollYProgress, [0.75, 0.85], [200, 0], {
     ease: cubicBezier(0.455, 0.03, 0.515, 0.955),
   });
-  const missionTextOpacity = useTransform(scrollYProgress, [0.75, 0.95], [0, 1], {
+  const missionTextOpacity = useTransform(scrollYProgress, [0.85, 1], [0, 1], {
     ease: cubicBezier(0.455, 0.03, 0.515, 0.955),
   });
-  const missionTextY = useTransform(scrollYProgress, [0.75, 0.95], [200, 0], {
+  const missionTextY = useTransform(scrollYProgress, [0.85, 1], [200, 0], {
     ease: cubicBezier(0.455, 0.03, 0.515, 0.955),
   });
 
@@ -113,20 +104,20 @@ const DeptLogo = () => {
     <ColoredSection color="BLACK">
       <div
         ref={containerRef}
-        className="flex flex-col px-12 md:px-20 pt-32 pb-8 justify-center items-center min-h-screen"
+        className="flex flex-col px-12 md:px-20 py-8 justify-center items-center min-h-screen overflow-hidden"
         id="mission"
       >
-        <div className="flex justify-center align-items-center relative px-5 md:px-0">
+        <div className="flex justify-center items-center relative px-5 md:px-0">
           <motion.img
             style={{
               y: logoTop,
               scale: scaleLogo,
             }}
             src="/cse.png"
-            width={380}
-            height={220}
+            width={480}
+            height={280}
             alt="cse Image"
-            className="cse-image w-[280px] md:w-[380px] h-auto"
+            className="cse-image max-h-[200px] md:max-h-[240px] w-auto"
           />
           <motion.div
             style={{
@@ -138,14 +129,14 @@ const DeptLogo = () => {
           >
             <Image
               src="/cap.png"
-              width={160}
-              height={160}
+              width={200}
+              height={200}
               alt="Cap Image"
               className="cap-image w-[20vw] md:w-[160px]"
             />
           </motion.div>
         </div>
-        <div className="flex sm:flex-row flex-col w-full justify-around pt-8 gap-4 md:gap-0">
+        <div className="flex sm:flex-row flex-col w-full justify-around pt-6 gap-4 md:gap-0">
           <motion.div
             style={{
               opacity: visionTextOpacity,
@@ -158,9 +149,9 @@ const DeptLogo = () => {
               width={400}
               height={400}
               alt="vision"
-              className="w-full"
+              className="w-2/3"
             />
-            <p className="text-gray-500 text-xl pr-8 md:pr-12 mt-2">
+            <p className="text-gray-500 text-base md:text-lg pr-4 md:pr-8 mt-2">
               {DeptConstants.vision}
             </p>
           </motion.div>
@@ -177,9 +168,9 @@ const DeptLogo = () => {
                 width={400}
                 height={400}
                 alt="mission"
-                className="w-full"
+                className="w-2/3"
               />
-              <p className="text-gray-500 text-xl pl-8 md:pl-12 mt-2">
+              <p className="text-gray-500 text-base md:text-lg pl-4 md:pl-8 mt-2">
                 {DeptConstants.mission}
               </p>
             </div>
@@ -190,7 +181,7 @@ const DeptLogo = () => {
 
             
 
-         <div className="overflow-hidden flex  flex-row items-center w-screen h-min  "
+         <div className="overflow-hidden flex flex-row items-center w-full h-min"
          onMouseEnter={handleMouseEnter}
          onMouseLeave={handleMouseLeave}>
 

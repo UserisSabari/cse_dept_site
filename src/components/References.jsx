@@ -1,10 +1,13 @@
 "use client";
 import { gsap } from "gsap";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ColoredSection from "./ColoredSection";
+
+gsap.registerPlugin(ScrollTrigger);
 export default function References() {
+  const [expandedCard, setExpandedCard] = useState(null);
   let imag = [
     {
       org: "../images/1.jpg",
@@ -64,11 +67,11 @@ export default function References() {
   useGSAP(() => {
     let t1 = gsap.timeline({
       scrollTrigger: {
-        trigger: animatedRef,
+        trigger: animatedRef.current,
       },
     });
 
-    t1.from(comp.current, { scrollTrigger: animatedRef, x: -900, duration: 2 });
+    t1.from(comp.current, { scrollTrigger: animatedRef.current, x: -900, duration: 2 });
 
     let t2 = gsap.timeline();
 
@@ -129,8 +132,8 @@ export default function References() {
                     ref={item1}
                     className="group lg:basis-auto basis-full relative lg:h-[500px] h-[350px] lg:w-[30rem] hover:w-[45rem] w-[100%] opacity-0 overflow-hidden transition-all duration-[1s] rounded-xl"
                   >
-                    <div className="absolute bg-gradient-to-b from-[rgba(-1,-1,-1,0.7)] to-[rgba(0,0,0,0)] inset-x-0 z-1 w-full h-[50%]"></div>
-                    <div className="absolute bg-gradient-to-t from-[rgba(-1,-1,-1,0.7)] to-[rgba(0,0,0,0)] inset-x-0 bottom-0 z-1 w-full h-[50%]"></div>
+                    <div className="absolute bg-gradient-to-b from-[rgba(0,0,0,0.7)] to-[rgba(0,0,0,0)] inset-x-0 z-1 w-full h-[50%]"></div>
+                    <div className="absolute bg-gradient-to-t from-[rgba(0,0,0,0.7)] to-[rgba(0,0,0,0)] inset-x-0 bottom-0 z-1 w-full h-[50%]"></div>
                     <img
                       className="h-full w-full object-cover transition-all"
                       src="../blog/image1.jpeg"
@@ -142,23 +145,16 @@ export default function References() {
                       </p>
                       <div className="absolute inset-x-5 bottom-6">
                         <div className="text-white">
-                          
-                          <style>
-                            {`.parent:hover svg {
-                        fill: black;
-                        transform: scaleX(2.5);
-                        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-                        duration: 1s;
-                      }
-                      .parent:hover {
-                        width: 12rem;
-                        gap: 20px;
-                      }`}
-                          </style>
-                          <div className="parent mt-[7px] cursor-pointer hover:bg-white duration-[0.8s] hover:text-black bg-black font-bold w-[9rem] flex justify-center gap-[0.8rem]">
-                            READ MORE
+                          <p className={`text-gray-300 text-sm overflow-hidden transition-all duration-500 ${expandedCard === 1 ? 'max-h-40 opacity-100 mb-4' : 'max-h-0 opacity-0'}`}>
+                            Explore our latest project showcase where students demonstrate their innovative solutions to real-world problems. Discover cutting-edge technologies and creative implementations.
+                          </p>
+                          <div 
+                            onClick={() => setExpandedCard(expandedCard === 1 ? null : 1)}
+                            className="group/btn mt-[7px] cursor-pointer hover:bg-white duration-[0.8s] hover:text-black bg-black font-bold w-[9rem] hover:w-[12rem] hover:gap-[20px] flex justify-center gap-[0.8rem] transition-all items-center py-2"
+                          >
+                            {expandedCard === 1 ? 'READ LESS' : 'READ MORE'}
                             <svg
-                              className="w-[20px] fill-white hover:fill-black"
+                              className="w-[20px] fill-white group-hover/btn:fill-black group-hover/btn:scale-x-[2.5] transition-transform duration-[1s] ease-[cubic-bezier(0.4,0,0.2,1)]"
                               xmlns="http://www.w3.org/2000/svg"
                               viewBox="0 0 25 25"
                             >
@@ -176,8 +172,8 @@ export default function References() {
                     ref={items2}
                     className="group lg:basis-auto basis-1/3 opacity-0 lg:hover:w-[45rem] relative lg:h-[500px] h-[350px] min-w-[47%] sm:min-w-[48%] lg:w-[20rem] lg:min-w-min overflow-hidden transition-all duration-[1s] rounded-xl"
                   >
-                    <div className="absolute bg-gradient-to-b from-[rgba(-1,-1,-1,0.7)] to-[rgba(0,0,0,0)] inset-x-0 z-1 w-full h-[50%]"></div>
-                    <div className="absolute bg-gradient-to-t from-[rgba(-1,-1,-1,0.7)] to-[rgba(0,0,0,0)] inset-x-0 bottom-0 z-1 w-full h-[50%]"></div>
+                    <div className="absolute bg-gradient-to-b from-[rgba(0,0,0,0.7)] to-[rgba(0,0,0,0)] inset-x-0 z-1 w-full h-[50%]"></div>
+                    <div className="absolute bg-gradient-to-t from-[rgba(0,0,0,0.7)] to-[rgba(0,0,0,0)] inset-x-0 bottom-0 z-1 w-full h-[50%]"></div>
                     <img
                       className="h-full w-full object-cover transition-all"
                       src="../blog/image2.jpeg"
@@ -188,11 +184,16 @@ export default function References() {
                         World Map
                       </div>
                       <div className="absolute inset-x-5 bottom-6 text-white">
-                        <p className="text-gray-300"></p>
-                        <div className="parent mt-[7px] cursor-pointer hover:bg-white duration-[0.8s] hover:text-black bg-black font-bold w-[9rem] flex justify-center gap-[0.8rem]">
-                          READ MORE
+                        <p className={`text-gray-300 text-sm overflow-hidden transition-all duration-500 ${expandedCard === 2 ? 'max-h-40 opacity-100 mb-4' : 'max-h-0 opacity-0'}`}>
+                          A comprehensive guide to understanding global tech trends and how different regions are adapting to the rapidly changing digital landscape.
+                        </p>
+                        <div 
+                          onClick={() => setExpandedCard(expandedCard === 2 ? null : 2)}
+                          className="group/btn mt-[7px] cursor-pointer hover:bg-white duration-[0.8s] hover:text-black bg-black font-bold w-[9rem] hover:w-[12rem] hover:gap-[20px] flex justify-center gap-[0.8rem] transition-all items-center py-2"
+                        >
+                          {expandedCard === 2 ? 'READ LESS' : 'READ MORE'}
                           <svg
-                            className="w-[20px] fill-white hover:fill-black"
+                            className="w-[20px] fill-white group-hover/btn:fill-black group-hover/btn:scale-x-[2.5] transition-transform duration-[1s] ease-[cubic-bezier(0.4,0,0.2,1)]"
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 25 25"
                           >
@@ -209,8 +210,8 @@ export default function References() {
                     ref={item3}
                     className="group lg:basis-auto basis-1/3 lg:hover:w-[45rem] relative lg:h-[500px] h-[350px] min-w-[48%] lg:w-[20rem] lg:min-w-min opacity-0 overflow-hidden transition-all duration-[1s] rounded-xl"
                   >
-                    <div className="absolute bg-gradient-to-b from-[rgba(-1,-1,-1,0.7)] to-[rgba(0,0,0,0)] inset-x-0 z-1 w-full h-[50%]"></div>
-                    <div className="absolute bg-gradient-to-t from-[rgba(-1,-1,-1,0.7)] to-[rgba(0,0,0,0)] inset-x-0 bottom-0 z-1 w-full h-[50%]"></div>
+                    <div className="absolute bg-gradient-to-b from-[rgba(0,0,0,0.7)] to-[rgba(0,0,0,0)] inset-x-0 z-1 w-full h-[50%]"></div>
+                    <div className="absolute bg-gradient-to-t from-[rgba(0,0,0,0.7)] to-[rgba(0,0,0,0)] inset-x-0 bottom-0 z-1 w-full h-[50%]"></div>
                     <img
                       className="h-full w-full object-cover transition-all"
                       src="../blog/image3.jpeg"
@@ -221,11 +222,16 @@ export default function References() {
                         Attitude Probe
                       </div>
                       <div className="absolute inset-x-5 bottom-6 text-white">
-                        <p className="text-gray-300"></p>
-                        <div className="parent mt-[7px] cursor-pointer hover:bg-white duration-[0.5s] hover:text-black bg-black font-bold w-[9rem] flex justify-center gap-[0.8rem]">
-                          READ MORE
+                        <p className={`text-gray-300 text-sm overflow-hidden transition-all duration-500 ${expandedCard === 3 ? 'max-h-40 opacity-100 mb-4' : 'max-h-0 opacity-0'}`}>
+                          Deep dive into analyzing team morale and developing robust systems to measure and improve workplace attitude and productivity over time.
+                        </p>
+                        <div 
+                          onClick={() => setExpandedCard(expandedCard === 3 ? null : 3)}
+                          className="group/btn mt-[7px] cursor-pointer hover:bg-white duration-[0.8s] hover:text-black bg-black font-bold w-[9rem] hover:w-[12rem] hover:gap-[20px] flex justify-center gap-[0.8rem] transition-all items-center py-2"
+                        >
+                          {expandedCard === 3 ? 'READ LESS' : 'READ MORE'}
                           <svg
-                            className="w-[20px] fill-white hover:fill-black"
+                            className="w-[20px] fill-white group-hover/btn:fill-black group-hover/btn:scale-x-[2.5] transition-transform duration-[1s] ease-[cubic-bezier(0.4,0,0.2,1)]"
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 25 25"
                           >

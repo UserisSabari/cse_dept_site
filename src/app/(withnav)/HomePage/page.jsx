@@ -2,7 +2,7 @@
 
 // TODO: For future implementation - rename this file to HeroSection.jsx and move it to src/components/ to avoid unintended Next.js App Router route creation (/HomePage).
 
-import React, { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { MdOutlineNotifications } from "react-icons/md";
 import { motion } from "framer-motion";
 import ColoredSection from "../../../components/ColoredSection";
@@ -17,8 +17,7 @@ function Home() {
   const [hasAutoOpened, setHasAutoOpened] = useState(false);
   const [isHighlighting, setIsHighlighting] = useState(true);
   
-  // TODO: isHover state kept for future implementation
-  const [isHover, setIsHover] = useState(false);
+
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -84,7 +83,7 @@ function Home() {
 
         <div className="overflow-hidden relative w-full h-screen">
           <img
-            src="/placeholder-image.jpeg"  // Replace with your placeholder image path
+            src="/placeholder-image.jpeg"
             alt=""
             aria-hidden="true"
             className={`w-full h-full object-cover absolute top-0 z-[-2] transition-opacity duration-500 ${
@@ -92,7 +91,7 @@ function Home() {
             }`}
           />
           <video
-            src="frontVid.mp4"  // Replace with your video path
+            src="frontVid.mp4"
             autoPlay
             muted
             loop
@@ -111,8 +110,7 @@ function Home() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
             viewport={{ once: true }}
-            onMouseEnter={() => setIsHover(true)}
-            onMouseLeave={() => setIsHover(false)}
+
             onKeyDown={(e) => {
               if (e.key === "Enter" || e.key === " ") {
                 handleClick();

@@ -4,9 +4,6 @@ import Image from "next/image";
 import { FaAngleRight, FaArrowRightLong } from "react-icons/fa6";
 import {
   motion,
-  useAnimate,
-  useInView,
-  useMotionValueEvent,
   useScroll,
   useTransform,
 } from "framer-motion";
