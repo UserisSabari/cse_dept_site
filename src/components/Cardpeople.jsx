@@ -8,6 +8,9 @@ import { ImCross } from 'react-icons/im';
 import '@/components/nooverflow.css';
 import { cn } from '@/lib/utils';
 import { getFaculties } from '@/actions/faculty.action';
+import EmptyState from '@/components/ui/EmptyState';
+import { SkeletonList } from '@/components/ui/SkeletonCard';
+import { MdPeople } from 'react-icons/md';
 
 const ExpandableCards = ({ title, item }) => {
     const [isExpanded, setIsExpanded] = useState(false);
@@ -211,15 +214,17 @@ function Cardpeople() {
     }, {});
 
     return (
-        <div className="flex flex-col overflow-hidden min-h-[400px] mt-[15rem]">
+        <div className="flex flex-col overflow-hidden min-h-[400px] mt-24">
             {loading ? (
-                <div className="container mx-auto py-20 text-center">
-                    <p className="text-xl">Loading faculties...</p>
+                <div className="flex flex-wrap gap-3 px-5 py-10">
+                    <SkeletonList variant="person" count={6} />
                 </div>
             ) : Object.keys(groups).length === 0 ? (
-                <div className="container mx-auto py-20 text-center">
-                    <p className="text-xl">No faculties found</p>
-                </div>
+                <EmptyState
+                    icon={<MdPeople size={64} />}
+                    title="No faculty members found"
+                    description="Faculty information will appear here once it has been added."
+                />
             ) : (
                 <div className="w-full">
                     {Object.keys(groups).map((type) => (

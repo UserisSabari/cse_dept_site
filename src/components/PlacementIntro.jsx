@@ -3,7 +3,7 @@
 import React from 'react';
 import ColoredSection from './ColoredSection';
 
-const HodMessage = () => {
+const PlacementIntro = () => {
     return (
         <ColoredSection color="BLACK">
             <div className="bg-white container mx-auto py-32 md:py-32 px-4 h-full md:min-h-[70vh]">
@@ -16,7 +16,7 @@ const HodMessage = () => {
                     <div className="w-full flex justify-center md:justify-start">
                         <div className="w-full max-w-[250px] md:max-w-none">
                             <img
-                                src="./placement-cell-logo.svg"
+                                src="/placement-cell-logo.svg"
                                 alt="placement cell logo"
                                 className="w-full h-auto object-contain transition duration-300 ease-in-out"
                             />
@@ -45,4 +45,4 @@ const HodMessage = () => {
     );
 };
 
-export default HodMessage;
+export default PlacementIntro;

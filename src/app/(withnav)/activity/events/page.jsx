@@ -3,6 +3,9 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { getEvents } from '@/actions/event.action';
 import ColoredSection from '../../../../components/ColoredSection';
+import EmptyState from '@/components/ui/EmptyState';
+import { SkeletonList } from '@/components/ui/SkeletonCard';
+import { MdEvent } from 'react-icons/md';
 
 const EventCard = ({ event }) => {
     const [isHovered, setIsHovered] = useState(false);
@@ -102,9 +105,19 @@ const EventsSection = ({ title, events }) => {
                 </h1>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
-                {events.map((event) => (
-                    <EventCard key={event._id} event={event} />
-                ))}
+                {events.length === 0 ? (
+                    <div className="col-span-2">
+                        <EmptyState
+                            icon={<MdEvent size={64} />}
+                            title={`No ${title.toLowerCase()} at the moment`}
+                            description="New events will be added here when they're scheduled."
+                        />
+                    </div>
+                ) : (
+                    events.map((event) => (
+                        <EventCard key={event._id} event={event} />
+                    ))
+                )}
             </div>
         </div>
     );
@@ -155,9 +168,7 @@ export default function Page() {
                 </div>
                 <div className="bg-white container mx-auto">
                     {loading ? (
-                        <div className="container mx-auto py-20 text-center">
-                            <p className="text-xl">Loading events...</p>
-                        </div>
+                        <SkeletonList variant="event" count={4} />
                     ) : (
                         <div>
                             <EventsSection
