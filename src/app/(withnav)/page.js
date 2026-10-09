@@ -7,7 +7,7 @@ import DeptLogo from '@/components/DeptLogo';
 import HodMessage from '@/components/HodMessage';
 import HeroSection from '@/components/HeroSection';
 import References from '@/components/References';
-// import Acadamics from "./academics/page";
+// import Academics from "./academics/page";
 
 export default function Home() {
     return (

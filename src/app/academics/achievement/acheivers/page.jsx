@@ -91,7 +91,7 @@ const page = () => {
             <div className=" bg-[#e9e9e8] w-full h-full p-4 sm:p-6">
                 <div className="flex justify-start w-full h-full">
                     <h1 className="text-black font-bold font-bebasneue lg:text-5xl text-4xl ">
-                        . ACHEIVERS
+                        ACHIEVERS
                     </h1>
                 </div>
 

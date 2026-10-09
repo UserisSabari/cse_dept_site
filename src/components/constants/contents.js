@@ -19,7 +19,7 @@ export const studentsData = [
         image: './student-1.jpg',
     },
     {
-        name: 'Viswajith vp',
+        name: 'Viswajith VP',
         batch: '2021-25',
         sem: 'S3',
         cgpa: 9.3,
@@ -41,7 +41,7 @@ export const studentsData = [
     },
 ];
 
-export const AcadamicsDataForCard = [
+export const AcademicsDataForCard = [
     {
         title: 'BTech Computer Science And Engineering',
         description:

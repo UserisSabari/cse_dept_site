@@ -3,11 +3,10 @@
 import React, { useRef } from 'react';
 import useBoundingclientrect from '@rooks/use-boundingclientrect';
 import Image from 'next/image';
-import { AcadamicsDataForCard } from '@/constants/contents';
-import ColoredSection from '@/components/ColoredSection';
-import Link from 'next/link';
+import { AcademicsLabsDataForCard } from '@/constants/contents';
+import ColoredSection from '../../../components/ColoredSection';
 
-const AcadamicsPrograms = () => {
+const AcademicsPrograms = () => {
     const ref = useRef(null);
     const boundingClientRect = useBoundingclientrect(ref);
 
@@ -34,7 +33,7 @@ const AcadamicsPrograms = () => {
                             }}
                         >
                             <h2 className="text-[24px] lg:text-5xl font-normal font-bebasneue leading-[28.8px] lg:leading-tight lg:text-left">
-                                PROGRAMMES AND SYLLABI
+                                LABS AND OTHER FACILITIES
                             </h2>
                             <p className="font-montserrat text-[16px] sm:text-[22px] md:text-[24px]">
                                 The Department of Computer Science & Engineering
@@ -44,33 +43,27 @@ const AcadamicsPrograms = () => {
                                 ever-evolving field of computer science.
                             </p>
                         </div>
-                        <div className="flex justify-center lg:justify-end z-1 mt-8 lg:mt-0">
+                        <div className="flex justify-center lg:justify-end z-10 mt-8 lg:mt-0">
                             <div className="space-y-8 lg:space-y-[113px]">
-                                {AcadamicsDataForCard.map((item, i) => (
+                                {AcademicsLabsDataForCard.map((item, i) => (
                                     <div
                                         ref={i === 6 ? ref : undefined}
                                         key={i}
                                         className="max-w-[390px] w-full  lg:pl-16"
                                     >
-                                        <div className="">
+                                        <div className="z-1">
                                             <img
                                                 className="w-full h-auto lg:h-[525.83px] object-cover"
                                                 src={item.image}
                                                 alt=""
                                             />
                                         </div>
-                                        <Link
-                                            className="block font-normal font-montserrat text-[16px] lg:text-[20px] leading-[24.38px] bg-[#FFFFFF26] text-center p-[10px] mt-6"
-                                            href="https://ktu.edu.in/academics/scheme"
-                                        >
+                                        <button className="font-normal font-montserrat text-[16px] lg:text-[20px] leading-[24.38px] bg-[#FFFFFF26] text-center p-[10px] mt-6">
                                             SYLLABUS (2015 SCHEME)
-                                        </Link>
-                                        <Link
-                                            className="block font-normal font-montserrat text-[16px] lg:text-[20px] leading-[24.38px] bg-[#FFFFFF26] text-center p-[10px] mt-6"
-                                            href="https://ktu.edu.in/academics/scheme"
-                                        >
+                                        </button>
+                                        <button className=" font-normal font-montserrat text-[16px] lg:text-[20px] leading-[24.38px] bg-[#FFFFFF26] text-center p-[10px] mt-6">
                                             SYLLABUS (2019 SCHEME)
-                                        </Link>
+                                        </button>
                                         <h2 className="font-medium font-montserrat text-[18px] lg:text-[20px] leading-[24.38px] mt-6">
                                             {item.title}
                                         </h2>
@@ -88,4 +81,4 @@ const AcadamicsPrograms = () => {
     );
 };
 
-export default AcadamicsPrograms;
+export default AcademicsPrograms;

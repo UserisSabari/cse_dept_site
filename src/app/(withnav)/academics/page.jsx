@@ -1,16 +1,16 @@
 import React from 'react';
-import AcadamicsIntro from '@/components/AcadamicsIntro';
-import AcadamicsPrograms from '@/components/AcadamicsPrograms';
-import AcadamicsLabs from '@/components/AcadamicsLabs';
+import AcademicsIntro from '@/components/AcademicsIntro';
+import AcademicsPrograms from '@/components/AcademicsPrograms';
+import AcademicsLabs from '@/components/AcademicsLabs';
 
-const Acadamics = () => {
+const Academics = () => {
     return (
         <div className="">
-            <AcadamicsIntro />
-            <AcadamicsPrograms />
-            <AcadamicsLabs />
+            <AcademicsIntro />
+            <AcademicsPrograms />
+            <AcademicsLabs />
         </div>
     );
 };
 
-export default Acadamics;
+export default Academics;

@@ -74,7 +74,7 @@ export default function Developers() {
         },
         {
             img: '/viswa.jpg',
-            name: 'Viswajith vp',
+            name: 'Viswajith VP',
             position: 'Full-Stack Developer',
             socialmedia1: 'https://www.linkedin.com/in/viswajith-vp',
             socialmediaimg1: 'ImLinkedin2',

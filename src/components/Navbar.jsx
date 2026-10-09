@@ -96,7 +96,7 @@ const links = [
             {
                 label: 'Library',
                 type: 'sub-main',
-                href: '/academics#history',
+                href: '/academics',
             },
         ],
     },
@@ -248,7 +248,7 @@ function Navbar() {
                         </ul>
                         <div className="w-full flex items-end justify-between py-5 font-bebasneue text-gray-600">
                             <div>
-                                <p>&copy;2024 CSE ASSOSIATION</p>
+                                <p>&copy; {new Date().getFullYear()} CSE ASSOCIATION</p>
                                 <p className=" text-sm h-fit">
                                     DESIGN AND POWERED BY{' '}
                                     <Link
