@@ -22,7 +22,7 @@ const HodMessage = () => {
                         <div className="w-[150px] sm:w-[180px] md:w-full max-w-[250px] mx-auto">
                             <Image
                                 src={hod.image}
-                                alt="HOD Image"
+                                alt={`${hod.name} — ${hod.designation}`}
                                 width={300}
                                 height={400}
                                 className="w-full object-cover transition duration-300 ease-in-out"
@@ -32,14 +32,14 @@ const HodMessage = () => {
                             <p className="mt-2 text-2xl font-normal w-auto h-auto font-bebasneue">
                                 {hod.name}
                             </p>
-                            <p className="text-gray-500 text-[20px] w-auto h-auto font-bebasneue">
+                            <p className="text-gray-600 text-[20px] w-auto h-auto font-bebasneue">
                                 {hod.designation}
                             </p>
                         </div>
                     </div>
                     {/* Message of HOD */}
                     <div className="flex-auto justify-start w-full pt-5 md:pt-0 md:pl-5">
-                        <p className="whitespace-pre-line text-gray-500 text-[16px] sm:text-[17px] lg:text-[20px] leading-[28px] md:leading-[30px] lg:leading-[185%] transition duration-300 ease-in-out text-justify">
+                        <p className="whitespace-pre-line text-gray-600 text-[16px] sm:text-[17px] lg:text-[20px] leading-[28px] md:leading-[30px] lg:leading-[185%] transition duration-300 ease-in-out text-justify">
                             {hod.message}
                         </p>
                     </div>

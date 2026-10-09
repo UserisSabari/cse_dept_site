@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import ColoredSection from './ColoredSection';
 
 const PlacementIntro = () => {
@@ -15,16 +16,18 @@ const PlacementIntro = () => {
                 <div className="grid md:grid-cols-[330px_auto] grid-cols-1 gap-8 md:gap-[70px] w-full h-auto">
                     <div className="w-full flex justify-center md:justify-start">
                         <div className="w-full max-w-[250px] md:max-w-none">
-                            <img
+                            <Image
                                 src="/placement-cell-logo.svg"
-                                alt="placement cell logo"
+                                alt="Training & Placement Cell Logo — GEC Palakkad"
+                                width={250}
+                                height={150}
                                 className="w-full h-auto object-contain transition duration-300 ease-in-out"
                             />
                         </div>
                     </div>
                     {/* message of hod */}
                     <div className="flex-auto w-full">
-                        <p className="text-gray-500 text-[16px] sm:text-[17px] lg:text-[20px] xl:text-[24px] leading-[28px] md:leading-[30px] lg:leading-[185%] transition duration-300 ease-in-out">
+                        <p className="text-gray-600 text-[16px] sm:text-[17px] lg:text-[20px] xl:text-[24px] leading-[28px] md:leading-[30px] lg:leading-[185%] transition duration-300 ease-in-out">
                             The Training and Placement Cell of the Computer Science and
                             Engineering Department at Government Engineering College,
                             Sreekrishnapuram, Palakkad, serves as the bridge between our
