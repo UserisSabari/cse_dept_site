@@ -1,12 +1,12 @@
 'use client';
 
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { MdOutlineNotifications } from 'react-icons/md';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import ColoredSection from '../../../components/ColoredSection';
+import ColoredSection from './ColoredSection';
 
-function Home() {
+function HeroSection() {
     const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
     useEffect(() => {
@@ -15,14 +15,13 @@ function Home() {
 
     useEffect(() => {
         const video = document.getElementById('backgroundVideo');
-        video.addEventListener('loadeddata', () => {
+        const handleVideoLoaded = () => {
             setIsVideoLoaded(true);
-        });
+        };
+        video.addEventListener('loadeddata', handleVideoLoaded);
 
         return () => {
-            video.removeEventListener('loadeddata', () => {
-                setIsVideoLoaded(true);
-            });
+            video.removeEventListener('loadeddata', handleVideoLoaded);
         };
     }, []);
 
@@ -71,4 +70,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default HeroSection;

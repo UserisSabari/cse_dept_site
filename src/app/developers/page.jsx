@@ -111,41 +111,43 @@ export default function Developers() {
     const item2 = useRef(null);
     const item3 = useRef(null);
     const item4 = useRef(null);
-    let xPercent = 0;
-    let direction = -1;
-    let isPaused = false; // New flag to control animation state
+    const xPercent = useRef(0);
+    const direction = useRef(-1);
+    const isPaused = useRef(false); // New flag to control animation state
+    const requestRef = useRef();
 
     useEffect(() => {
-        requestAnimationFrame(animation);
+        requestRef.current = requestAnimationFrame(animation);
+        return () => cancelAnimationFrame(requestRef.current);
     }, []);
 
     const animation = () => {
-        if (!isPaused) {
+        if (!isPaused.current) {
             // Only update animation if not paused
-            if (xPercent <= -100) {
-                xPercent = 0;
+            if (xPercent.current <= -100) {
+                xPercent.current = 0;
             }
-            if (xPercent > 0) {
-                xPercent = -100;
+            if (xPercent.current > 0) {
+                xPercent.current = -100;
             }
 
-            gsap.set(item1.current, { xPercent: xPercent });
-            gsap.set(item2.current, { xPercent: xPercent });
-            gsap.set(item3.current, { xPercent: xPercent });
-            gsap.set(item4.current, { xPercent: xPercent });
+            gsap.set(item1.current, { xPercent: xPercent.current });
+            gsap.set(item2.current, { xPercent: xPercent.current });
+            gsap.set(item3.current, { xPercent: xPercent.current });
+            gsap.set(item4.current, { xPercent: xPercent.current });
 
-            xPercent += 0.02 * direction;
+            xPercent.current += 0.02 * direction.current;
         }
 
-        requestAnimationFrame(animation);
+        requestRef.current = requestAnimationFrame(animation);
     };
 
     const handleMouseEnter = () => {
-        isPaused = true; // Pause animation on hover
+        isPaused.current = true; // Pause animation on hover
     };
 
     const handleMouseLeave = () => {
-        isPaused = false; // Resume animation when hover ends
+        isPaused.current = false; // Resume animation when hover ends
     };
 
     return (

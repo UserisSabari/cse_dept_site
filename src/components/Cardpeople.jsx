@@ -117,7 +117,7 @@ const ExpandableCards = ({ title, item }) => {
                                             <motion.div className="flex gap-5 relative w-[80%] h-[30%] lg:w-2/5 p-5 lg:h-2/4 border-solid z-10 bg-white bg-opacity-20 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] backdrop-blur-lg">
                                                 <div
                                                     className="absolute top-[-30px] gap-2 right-0 w-auto flex items-center cursor-pointer bg-white/60 p-1"
-                                                    onClick={toggleVisible}
+                                                    onClick={() => setIsDescVisible(null)}
                                                 >
                                                     <span>Close</span>
                                                     <ImCross className="" />

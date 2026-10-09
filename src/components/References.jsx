@@ -7,48 +7,48 @@ import ColoredSection from './ColoredSection';
 export default function References() {
   let imag = [
     {
-      org: '../images/1.jpg',
-      hvr: '../images/1h.svg',
+      org: '/images/1.jpg',
+      hvr: '/images/1h.svg',
       link: 'http://gecskp.ac.in',
     },
     {
-      org: '../images/2.jpg',
-      hvr: '../images/2h.svg',
+      org: '/images/2.jpg',
+      hvr: '/images/2h.svg',
       link: 'https://digipay.dtekerala.gov.in',
     },
     {
-      org: '../images/3.jpg',
-      hvr: '../images/3h.svg',
+      org: '/images/3.jpg',
+      hvr: '/images/3h.svg',
       link: 'https://ktu.edu.in/',
     },
     {
-      org: '../images/4.png',
-      hvr: '../images/4h.png',
+      org: '/images/4.png',
+      hvr: '/images/4h.png',
       link: 'https://www.ktunotes.in/ktu-2019-scheme-question-papers/',
     },
     {
-      org: '../images/5.jpg',
-      hvr: '../images/5h.svg',
+      org: '/images/5.jpg',
+      hvr: '/images/5h.svg',
       link: 'https://ktu.edu.in/academics/scheme',
     },
     {
-      org: '../images/6.jpg',
-      hvr: '../images/6h.svg',
+      org: '/images/6.jpg',
+      hvr: '/images/6h.svg',
       link: 'https://ktu.edu.in/academics/scheme',
     },
     {
-      org: '../images/7.jpg',
-      hvr: '../images/7h.svg',
+      org: '/images/7.jpg',
+      hvr: '/images/7h.svg',
       link: 'https://digipay.dtekerala.gov.in/',
     },
     {
-      org: '../images/8.jpg',
-      hvr: '../images/8h.svg',
+      org: '/images/8.jpg',
+      hvr: '/images/8h.svg',
       link: 'https://gecskp.etlab.in/',
     },
     {
-      org: '../images/9.jpg',
-      hvr: '../images/9h.svg',
+      org: '/images/9.jpg',
+      hvr: '/images/9h.svg',
       link: 'https://gecskp.etlab.in/',
     },
   ];
