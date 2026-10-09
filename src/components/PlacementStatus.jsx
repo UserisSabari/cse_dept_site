@@ -82,7 +82,7 @@ const ExpandableCards = ({ title }) => {
                     </div>
                     <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
                         <div className="pb-2 pl-2 md:pl-5 text-[#696969] text-xs md:text-sm lg:text-base">
-                            Year &nbsp; 2027 &nbsp; Batch
+                            Year &nbsp; 2024 &nbsp; Batch
                         </div>
                         <button className="w-full md:w-[151.19px] h-[38px] py-2 px-4 text-white bg-[#696969] text-xs md:text-sm lg:text-base mt-2 md:mt-0">
                             Download
@@ -100,18 +100,18 @@ const ExpandableCards = ({ title }) => {
                             <tbody className="text-[#696969] text-center">
                                 <tr>
                                     <td className="p-2">1</td>
-                                    <td className="p-2">Company A</td>
-                                    <td className="p-2">5</td>
+                                    <td className="p-2">TCS</td>
+                                    <td className="p-2">12</td>
                                 </tr>
                                 <tr>
                                     <td className="p-2">2</td>
-                                    <td className="p-2">Company B</td>
-                                    <td className="p-2">10</td>
+                                    <td className="p-2">Cognizant</td>
+                                    <td className="p-2">8</td>
                                 </tr>
                                 <tr>
                                     <td className="p-2">3</td>
-                                    <td className="p-2">Company C</td>
-                                    <td className="p-2">8</td>
+                                    <td className="p-2">QBurst</td>
+                                    <td className="p-2">5</td>
                                 </tr>
                             </tbody>
                         </table>

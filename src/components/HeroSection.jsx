@@ -46,7 +46,7 @@ function HeroSection() {
 
                 <div className="overflow-hidden relative w-full h-screen">
                     <img
-                        src="/placeholder-image.jpeg" // Replace with your placeholder image path
+                        src="/bg.png" // Replace with your placeholder image path
                         alt="Background"
                         className={`w-full h-full object-cover absolute top-0 z-[-2] transition-opacity duration-500 ${
                             isVideoLoaded ? 'opacity-0' : 'opacity-100'

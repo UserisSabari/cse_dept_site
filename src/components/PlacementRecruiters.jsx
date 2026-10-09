@@ -22,23 +22,23 @@ const PlacementRecruiters = () => {
     }, [setupInstances]);
 
     const images1 = [
-        './Adobe.svg',
-        './Airbnb.svg',
-        './Amazon.svg',
-        './Canva.svg',
-        './Descript.svg',
-        './Discord.svg',
-        './Dropbox.svg',
+        '/cognizant.jpg',
+        '/tata.jpg',
+        '/ust.jpg',
+        '/qburst.jpg',
+        '/keltron.jpg',
+        '/experion.jpg',
+        '/LandT.jpg',
     ];
 
     const images2 = [
-        './Pinterest.svg',
-        './Reddit.svg',
-        './OLX.svg',
-        './Microsoft.svg',
-        './LinkedIn.svg',
-        './IBM.svg',
-        './GitLab.svg',
+        '/pennyflo.jpg',
+        '/xyvin.jpg',
+        '/zendalona.jpg',
+        '/cognizant.jpg',
+        '/tata.jpg',
+        '/ust.jpg',
+        '/qburst.jpg',
     ];
 
     const ScrollingRow = ({ direction, innerRef, images }) => (
