@@ -145,9 +145,11 @@ const ExpandableCards = ({ title, item }) => {
                                                         <div className="lg:text-[0.8rem] text-[0.3rem] text-[#696969] w-full">
                                                             {data.email}
                                                         </div>
-                                                        <div className="lg:text-[0.8rem] text-[0.3rem] text-[#696969] w-full">
-                                                            {data.phone}
-                                                        </div>
+                                                        {data.phone ? (
+                                                            <div className="lg:text-[0.8rem] text-[0.3rem] text-[#696969] w-full">
+                                                                {data.phone}
+                                                            </div>
+                                                        ) : null}
                                                     </div>
                                                 </div>
                                                 <div className="pl-3 no-scrollbar overflow-y-auto w-2/3">
