@@ -66,8 +66,8 @@ export async function deleteMagazine(magazineId) {
 export async function getMagazinesByCategory(category) {
     try {
         await dbConnect();
-        const magazines = await Magazine.find({ category }).sort({ date: -1 });
-        return magazines;
+        const magazines = await Magazine.find({ category }).sort({ date: -1 }).lean();
+        return JSON.parse(JSON.stringify(magazines));
     } catch (error) {
         console.error('Failed to fetch magazines by category:', error);
         throw new Error('Failed to fetch magazines by category');

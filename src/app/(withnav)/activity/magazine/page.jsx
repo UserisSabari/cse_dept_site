@@ -1,6 +1,7 @@
 'use client';
-import React, { useState } from 'react';
-import { departmentMagazine, pgNewsLetter } from './magazine';
+import React, { useState, useEffect } from 'react';
+import { departmentMagazine as staticDepartmentMagazine, pgNewsLetter as staticPgNewsletter } from './magazine';
+import { getMagazines } from '@/actions/magazine.action';
 import Modal from './modal';
 import ColoredSection from '../../../../components/ColoredSection';
 import FlipBook from './FlipBook';
@@ -9,8 +10,9 @@ const EventCard = ({ event, onCardClick }) => {
     const [isHovered, setIsHovered] = useState(false);
 
     const handleClick = () => {
-        // Always use onCardClick, which will handle both PDFs and other URLs
-        onCardClick(event.pdf);
+        if (event.pdf) {
+            onCardClick(event.pdf);
+        }
     };
 
     return (
@@ -22,7 +24,7 @@ const EventCard = ({ event, onCardClick }) => {
         >
             <div className="h-auto w-full md:w-auto overflow-hidden mb-4 md:mb-0">
                 <img
-                    src={event.image}
+                    src={event.image || "/quanta'22.png"}
                     alt={event.title}
                     width={500}
                     height={500}
@@ -78,6 +80,7 @@ const EventCard = ({ event, onCardClick }) => {
                     </div>
                     <div>
                         <button
+                            type="button"
                             className={`text-white text-base md:text-[18px] px-4 py-2 transition duration-500 rounded w-full md:w-auto ${
                                 isHovered ? 'bg-red-500' : 'bg-gray-500'
                             }`}
@@ -111,16 +114,16 @@ const EventsSection = ({ title, events, onCardClick }) => {
             <div className="grid grid-cols-1 gap-6 md:gap-0 md:grid-cols-2">
                 {events.slice(0, visibleEvents).map((event, index) => (
                     <EventCard
-                        key={event.id}
+                        key={event.id || index}
                         event={event}
                         onCardClick={onCardClick}
-                        index={index}
                     />
                 ))}
             </div>
             {visibleEvents < events.length && (
                 <div className="text-center mt-6">
                     <button
+                        type="button"
                         className="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded transition duration-300"
                         onClick={loadMore}
                     >
@@ -135,8 +138,54 @@ const EventsSection = ({ title, events, onCardClick }) => {
 export default function Page() {
     const [selectedPdf, setSelectedPdf] = useState(null);
     const [showModal, setShowModal] = useState(false);
+    const [departmentMagazines, setDepartmentMagazines] = useState(staticDepartmentMagazine);
+    const [pgNewsletters, setPgNewsletters] = useState(staticPgNewsletter);
+
+    useEffect(() => {
+        async function fetchMagazines() {
+            try {
+                const dbMagazines = await getMagazines();
+                if (dbMagazines && dbMagazines.length > 0) {
+                    const mapped = dbMagazines.map((m) => ({
+                        id: m._id,
+                        title: m.name,
+                        description: m.description,
+                        date: m.date
+                            ? new Date(m.date).toLocaleDateString('en-US', {
+                                  year: 'numeric',
+                                  month: 'long',
+                                  day: 'numeric',
+                              })
+                            : '',
+                        image: m.frontPageUrl || "/quanta'22.png",
+                        pdf: m.pdfUrl,
+                        category: m.category || '',
+                    }));
+
+                    const newsletters = mapped.filter((m) =>
+                        m.category.toLowerCase().includes('newsletter')
+                    );
+                    const depts = mapped.filter(
+                        (m) => !m.category.toLowerCase().includes('newsletter')
+                    );
+
+                    // If DB has items, prioritize DB and supplement with static
+                    if (depts.length > 0) {
+                        setDepartmentMagazines([...depts, ...staticDepartmentMagazine]);
+                    }
+                    if (newsletters.length > 0) {
+                        setPgNewsletters([...newsletters, ...staticPgNewsletter]);
+                    }
+                }
+            } catch (err) {
+                console.error('Error fetching magazines from database:', err);
+            }
+        }
+        fetchMagazines();
+    }, []);
 
     const handleCardClick = (pdf) => {
+        if (!pdf) return;
         if (pdf.endsWith('.pdf')) {
             setSelectedPdf(pdf);
             setShowModal(true);
@@ -167,7 +216,7 @@ export default function Page() {
                 <div className="bg-white container mx-auto">
                     <EventsSection
                         title="Department Magazine"
-                        events={departmentMagazine}
+                        events={departmentMagazines}
                         onCardClick={handleCardClick}
                     />
                     <div className="container mx-auto py-8 px-4 md:px-0">
@@ -178,9 +227,9 @@ export default function Page() {
                             </h2>
                         </div>
                         <div className="grid grid-cols-1 gap-6">
-                            {pgNewsLetter.map((event) => (
+                            {pgNewsletters.map((event, index) => (
                                 <EventCard
-                                    key={event.id}
+                                    key={event.id || index}
                                     event={event}
                                     onCardClick={handleCardClick}
                                 />
@@ -191,7 +240,7 @@ export default function Page() {
             </div>
 
             {/* Modal for FlipBook */}
-            {showModal && (
+            {showModal && selectedPdf && (
                 <Modal onClose={closeModal}>
                     {selectedPdf.endsWith('.pdf') ? (
                         <FlipBook pdf={selectedPdf} />
