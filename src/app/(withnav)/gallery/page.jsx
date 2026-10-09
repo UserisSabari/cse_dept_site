@@ -1,7 +1,7 @@
 import React from 'react';
 import Gallery from '@/components/Gallery';
 
-const Academics = () => {
+const GalleryPage = () => {
     return (
         <div className="">
             <Gallery />
@@ -9,4 +9,4 @@ const Academics = () => {
     );
 };
 
-export default Academics;
+export default GalleryPage;
