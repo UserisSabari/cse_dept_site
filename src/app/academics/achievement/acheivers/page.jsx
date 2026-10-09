@@ -11,7 +11,7 @@ function NextArrow(props) {
     const { className, onClick } = props;
     return (
         <div onClick={onClick} className={className}>
-            <HiArrowRight class="arrows" />
+            <HiArrowRight className="arrows" />
         </div>
     );
 }
@@ -20,7 +20,7 @@ function PrevArrow(props) {
     const { className, onClick } = props;
     return (
         <div onClick={onClick} className={className}>
-            <HiArrowLeft class="arrows" />
+            <HiArrowLeft className="arrows" />
         </div>
     );
 }

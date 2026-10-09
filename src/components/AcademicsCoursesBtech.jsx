@@ -20,7 +20,7 @@ const AcademicsCoursesBtech = () => {
                             <div className="pr-10 font-normal font-montserrat text-[20px]/[24.38px]">
                                 [1]
                             </div>
-                            <div class="list-item">
+                            <div className="list-item">
                                 <div className="flex justify-between">
                                     <div className="pr-10 font-normal font-montserrat text-[20px]/[24.38px]">
                                         <h1>MAT101</h1>
@@ -44,7 +44,7 @@ const AcademicsCoursesBtech = () => {
                             <div className="pr-10 font-normal font-montserrat text-[20px]/[24.38px]">
                                 [1]
                             </div>
-                            <div class="list-item">
+                            <div className="list-item">
                                 <div className="flex justify-between">
                                     <div className="pr-10 font-normal font-montserrat text-[20px]/[24.38px]">
                                         <h1>MAT101</h1>
@@ -68,7 +68,7 @@ const AcademicsCoursesBtech = () => {
                             <div className="pr-10 font-normal font-montserrat text-[20px]/[24.38px]">
                                 [1]
                             </div>
-                            <div class="list-item">
+                            <div className="list-item">
                                 <div className="flex justify-between">
                                     <div className="pr-10 font-normal font-montserrat text-[20px]/[24.38px]">
                                         <h1>MAT101</h1>
@@ -92,7 +92,7 @@ const AcademicsCoursesBtech = () => {
                             <div className="pr-10 font-normal font-montserrat text-[20px]/[24.38px]">
                                 [1]
                             </div>
-                            <div class="list-item">
+                            <div className="list-item">
                                 <div className="flex justify-between">
                                     <div className="pr-10 font-normal font-montserrat text-[20px]/[24.38px]">
                                         <h1>MAT101</h1>
@@ -116,7 +116,7 @@ const AcademicsCoursesBtech = () => {
                             <div className="pr-10 font-normal font-montserrat text-[20px]/[24.38px]">
                                 [1]
                             </div>
-                            <div class="list-item">
+                            <div className="list-item">
                                 <div className="flex justify-between">
                                     <div className="pr-10 font-normal font-montserrat text-[20px]/[24.38px]">
                                         <h1>MAT101</h1>
@@ -140,7 +140,7 @@ const AcademicsCoursesBtech = () => {
                             <div className="pr-10 font-normal font-montserrat text-[20px]/[24.38px]">
                                 [1]
                             </div>
-                            <div class="list-item">
+                            <div className="list-item">
                                 <div className="flex justify-between">
                                     <div className="pr-10 font-normal font-montserrat text-[20px]/[24.38px]">
                                         <h1>MAT101</h1>

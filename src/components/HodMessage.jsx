@@ -29,7 +29,6 @@ const HodMessage = () => {
                             <Image
                                 src={hod.image}
                                 alt="HOD Image"
-                                layout="responsive"
                                 width={300}
                                 height={400}
                                 className="w-full object-cover transition duration-300 ease-in-out"
