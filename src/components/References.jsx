@@ -89,12 +89,12 @@ export default function References() {
       >
         <div className="lg:flex-row flex flex-col-reverse lg:10 xl:px-20 justify-between">
           <div className="lg:flex-none flex flex-col justify-center items-center">
-            <h1
+            <h2
               ref={text1}
               className="self-start lg:block lg:px-0 px-10 font-bold mt-[1rem] mb-[1rem] font-bebasneue text-[56px]"
             >
               REFERENCES
-            </h1>
+            </h2>
             <div
               ref={comp}
               className="

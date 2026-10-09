@@ -5,7 +5,7 @@ export default function WithNavLayout({ children }) {
     return (
         <>
             <Navbar />
-            {children}
+            <main id="main-content">{children}</main>
             <Footer />
         </>
     );

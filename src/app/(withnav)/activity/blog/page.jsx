@@ -85,13 +85,13 @@ function HoverableItem({ item }) {
                                 isHover ? 'block' : 'hidden'
                             } transition-opacity duration-400`}
                         ></span>
-                        <h1
+                        <h2
                             className={`text-xl md:text-2xl ${
                                 isHover ? 'translate-x-3' : ''
-                            } transition-transform duration-300`}
+                            } transition-transform duration-300 font-semibold`}
                         >
                             {item.name}
-                        </h1>
+                        </h2>
                     </div>
                     <pre
                         className={`${
@@ -116,9 +116,9 @@ function HoverableItem({ item }) {
                                 {item.type.charAt(0).toUpperCase()}
                             </div>
                             <div className="mt-3">
-                                <h1 className="text-sm md:text-base">
+                                <p className="text-sm md:text-base font-medium">
                                     {item.authorName}
-                                </h1>
+                                </p>
                                 <p
                                     className={`${
                                         isHover

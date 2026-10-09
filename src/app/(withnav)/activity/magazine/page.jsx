@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import { departmentMagazine, pgMagazine, pgNewsLetter } from './magazine';
+import { departmentMagazine, pgNewsLetter } from './magazine';
 import Modal from './modal';
 import ColoredSection from '../../../../components/ColoredSection';
 import FlipBook from './FlipBook';
@@ -104,9 +104,9 @@ const EventsSection = ({ title, events, onCardClick }) => {
         <div className="container mx-auto py-8 px-4 md:px-0">
             <div className="w-full h-full flex justify-start items-end pt-8">
                 <span className="w-2 h-2 md:w-3 md:h-3 bg-black mb-3 md:mb-5 mr-2 md:mr-3"></span>
-                <h1 className="uppercase text-3xl md:text-[48px] font-bold">
+                <h2 className="uppercase text-3xl md:text-[48px] font-bold">
                     {title}
-                </h1>
+                </h2>
             </div>
             <div className="grid grid-cols-1 gap-6 md:gap-0 md:grid-cols-2">
                 {events.slice(0, visibleEvents).map((event, index) => (
@@ -170,17 +170,12 @@ export default function Page() {
                         events={departmentMagazine}
                         onCardClick={handleCardClick}
                     />
-                    {/* <EventsSection
-            title="PG Magazine"
-            events={pgMagazine}
-            onCardClick={handleCardClick}
-          /> */}
                     <div className="container mx-auto py-8 px-4 md:px-0">
                         <div className="w-full h-full flex justify-start items-end pt-8">
                             <span className="w-2 h-2 md:w-3 md:h-3 bg-black mb-3 md:mb-5 mr-2 md:mr-3"></span>
-                            <h1 className="uppercase text-3xl md:text-[48px] font-bold">
-                                PG NewsLetter
-                            </h1>
+                            <h2 className="uppercase text-3xl md:text-[48px] font-bold">
+                                PG Newsletter
+                            </h2>
                         </div>
                         <div className="grid grid-cols-1 gap-6">
                             {pgNewsLetter.map((event) => (

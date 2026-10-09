@@ -2,25 +2,19 @@
 
 import React, { useEffect } from 'react';
 import { hodData } from '../constants/contents';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 import Image from 'next/image';
 import ColoredSection from './ColoredSection';
 
 const HodMessage = () => {
     const hod = hodData[0];
 
-    useEffect(() => {
-        AOS.init({ duration: 1000 });
-    }, []);
-
     return (
         <ColoredSection color="BLACK">
             <div className="bg-white container mx-auto py-20 px-4 h-full md:min-h-[70vh]">
                 <div className="w-full h-auto text-right">
-                    <h1 className="text-black w-auto h-auto text-4xl lg:text-5xl font-semibold font-bebasneue">
+                    <h2 className="text-black w-auto h-auto text-4xl lg:text-5xl font-semibold font-bebasneue">
                         HOD MESSAGE
-                    </h1>
+                    </h2>
                 </div>
                 <div className="grid md:grid-cols-[250px_auto] grid-cols-1 gap-[20px] md:gap-[50px] md:flex-row md:justify-between w-full h-auto md:pt-5 md:pl-0 xl:pl-0">
                     {/* Image of HOD and designation */}

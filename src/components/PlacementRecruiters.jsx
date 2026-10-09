@@ -67,9 +67,9 @@ const PlacementRecruiters = () => {
     return (
         <section className="bg-white w-full py-32">
             <div className="px-20">
-                <h1 className=" w-auto h-auto text-3xl md:text-4xl lg:text-5xl font-semibold font-bebasneue">
+                <h2 className="w-auto h-auto text-3xl md:text-4xl lg:text-5xl font-semibold font-bebasneue">
                     OUR RECRUITERS
-                </h1>
+                </h2>
             </div>
             <div className="overflow-hidden relative pt-20" ref={outerRef}>
                 <ScrollingRow
@@ -86,13 +86,11 @@ const PlacementRecruiters = () => {
                 <div className="my-10" />
                 <ScrollingRow
                     direction="left"
-                    innerRef={innerRef1}
                     images={images1}
                 />
                 <div className="my-10" />
                 <ScrollingRow
                     direction="right"
-                    innerRef={innerRef2}
                     images={images2}
                 />
                 <style jsx>{`

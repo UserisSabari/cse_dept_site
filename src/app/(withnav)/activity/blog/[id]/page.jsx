@@ -28,16 +28,15 @@ export default function DetailsPage() {
                 <div className="relative w-full h-[250px] md:h-[400px] lg:h-[520px] flex justify-center">
                     <Image
                         src={blogItem.img}
-                        alt="images"
-                        layout="fill"
-                        objectFit="cover"
-                        className="rounded-md"
+                        alt={blogItem.head || 'Blog image'}
+                        fill
+                        className="rounded-md object-cover"
                     />
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 mt-8 gap-6">
                     <div className="w-full md:w-72 flex flex-col items-center text-center">
                         <IoPersonCircle className="w-16 h-16 md:w-8 md:h-8" />
-                        <h1 className="text-lg md:text-xl">{blogItem.name}</h1>
+                        <h2 className="text-lg md:text-xl font-semibold">{blogItem.name}</h2>
                         <p className="text-gray-600">{blogItem.year}</p>
                     </div>
                     <div className="col-span-2 text-justify text-gray-600">

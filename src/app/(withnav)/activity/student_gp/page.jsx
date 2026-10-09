@@ -67,13 +67,13 @@ function HoverableItem({ item, onClick }) {
                             isHover ? 'block' : 'hidden'
                         } transition-opacity duration-400`}
                     ></span>
-                    <h1
+                    <h2
                         className={`text-xl sm:text-2xl ${
                             isHover ? 'translate-x-2 sm:translate-x-3' : ''
-                        } transition-transform duration-300`}
+                        } transition-transform duration-300 font-bold`}
                     >
                         {item.head}
-                    </h1>
+                    </h2>
                 </div>
                 <p
                     dangerouslySetInnerHTML={{ __html: item.content }}
@@ -105,9 +105,9 @@ function Modal({ item, onClose }) {
                             height={200}
                             className="w-full h-auto object-cover mb-4"
                         />
-                        <h1 className="text-xl sm:text-2xl font-bold mb-4">
+                        <h3 className="text-xl sm:text-2xl font-bold mb-4">
                             {item.head}
-                        </h1>
+                        </h3>
                     </div>
                 </div>
                 <div className="w-full md:w-3/5">

@@ -23,7 +23,7 @@ const AcademicsCoursesBtech = () => {
                             <div className="list-item">
                                 <div className="flex justify-between">
                                     <div className="pr-10 font-normal font-montserrat text-[20px]/[24.38px]">
-                                        <h1>MAT101</h1>
+                                        <h3 className="font-bold">MAT101</h3>
                                         <h2>
                                             Vector Calculus, Differential
                                             Equations and Transforms
@@ -47,7 +47,7 @@ const AcademicsCoursesBtech = () => {
                             <div className="list-item">
                                 <div className="flex justify-between">
                                     <div className="pr-10 font-normal font-montserrat text-[20px]/[24.38px]">
-                                        <h1>MAT101</h1>
+                                        <h3 className="font-bold">MAT101</h3>
                                         <h2>
                                             Vector Calculus, Differential
                                             Equations and Transforms
@@ -71,7 +71,7 @@ const AcademicsCoursesBtech = () => {
                             <div className="list-item">
                                 <div className="flex justify-between">
                                     <div className="pr-10 font-normal font-montserrat text-[20px]/[24.38px]">
-                                        <h1>MAT101</h1>
+                                        <h3 className="font-bold">MAT101</h3>
                                         <h2>
                                             Vector Calculus, Differential
                                             Equations and Transforms
@@ -95,7 +95,7 @@ const AcademicsCoursesBtech = () => {
                             <div className="list-item">
                                 <div className="flex justify-between">
                                     <div className="pr-10 font-normal font-montserrat text-[20px]/[24.38px]">
-                                        <h1>MAT101</h1>
+                                        <h3 className="font-bold">MAT101</h3>
                                         <h2>
                                             Vector Calculus, Differential
                                             Equations and Transforms
@@ -119,7 +119,7 @@ const AcademicsCoursesBtech = () => {
                             <div className="list-item">
                                 <div className="flex justify-between">
                                     <div className="pr-10 font-normal font-montserrat text-[20px]/[24.38px]">
-                                        <h1>MAT101</h1>
+                                        <h3 className="font-bold">MAT101</h3>
                                         <h2>
                                             Vector Calculus, Differential
                                             Equations and Transforms
@@ -143,7 +143,7 @@ const AcademicsCoursesBtech = () => {
                             <div className="list-item">
                                 <div className="flex justify-between">
                                     <div className="pr-10 font-normal font-montserrat text-[20px]/[24.38px]">
-                                        <h1>MAT101</h1>
+                                        <h3 className="font-bold">MAT101</h3>
                                         <h2>
                                             Vector Calculus, Differential
                                             Equations and Transforms

@@ -100,9 +100,9 @@ const EventsSection = ({ title, events }) => {
         <div className="container mx-auto py-8 px-4 md:px-0">
             <div className="w-full h-full flex justify-start items-end pt-8">
                 <span className="w-3 h-3 bg-black mb-5 mr-3"></span>
-                <h1 className="uppercase text-[32px] md:text-[48px] font-bold">
+                <h2 className="uppercase text-[32px] md:text-[48px] font-bold">
                     {title}
-                </h1>
+                </h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
                 {events.length === 0 ? (
